@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belladonna Botanicals | Coming Soon • Bientôt disponible</title>
+    <style>
+        /* Typography Imports for Apothecary Styling */
+        @import url('https://googleapis.com');
+
+        :root {
+            /* Vintage base colors extracted from the label art */
+            --bg-parchment: #F6ECD5;
+            --parchment-shadow: #EADCB9;
+            --ink-black: #0F0F0F;
+            --botanical-green: #29382B;
+            
+            /* Scent Collection Accent Colors */
+            --color-wildflower: #70527F;
+            --color-cherryblossom: #D47B74;
+            --color-maraschino: #801116;
+            --color-spellbound: #3B1F43;
+            
+            /* Fonts */
+            --font-display: 'Cinzel', serif;
+            --font-heritage: 'Fraunces', serif;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #EFE6CE;
+            background-image: radial-gradient(var(--bg-parchment) 60%, var(--parchment-shadow));
+            color: var(--ink-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+            transition: background 1.5s ease;
+        }
+
+        /* Ornate Double-Border Label Frame */
+        .apothecary-card {
+            background-color: var(--bg-parchment);
+            border: 2px solid var(--ink-black);
+            outline: 6px double var(--ink-black);
+            outline-offset: -12px;
+            max-width: 580px;
+            width: 100%;
+            padding: 70px 45px 65px 45px;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(40, 30, 15, 0.12);
+            transition: background-color 1.5s ease;
+        }
+
+        /* Fine Corner Scroll Embellishments */
+        .corner {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border: 1px solid var(--ink-black);
+            font-size: 10px;
+            line-height: 23px;
+        }
+        .top-left { top: 18px; left: 18px; border-right: none; border-bottom: none; }
+        .top-right { top: 18px; right: 18px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 18px; left: 18px; border-right: none; border-top: none; }
+        .bottom-right { bottom: 18px; right: 18px; border-left: none; border-top: none; }
+
+        /* Arched Logo Header Styling */
+        .brand-arc-wrapper {
+            margin-bottom: 5px;
+            padding-top: 10px;
+        }
+
+        .logo-main {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
+            transform: scaleY(1.1);
+        }
+
+        .logo-sub {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .center-crest {
+            font-size: 1.2rem;
+            color: var(--ink-black);
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .center-crest::before, .center-crest::after {
+            content: "❦";
+            font-size: 0.9rem;
+        }
+
+        /* Rotator Container for the Collections */
+        .showcase-container {
+            height: 95px;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .collection-title {
+            font-family: var(--font-heritage);
+            font-style: italic;
+            font-weight: 600;
+            font-size: 2.8rem;
+            line-height: 1;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
+
+        .bilingual-tag {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--botanical-green);
+        }
+
+        /* Site Messaging */
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #2D2D2D;
+            max-width: 440px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Decorative Bottom Flourish to Balance Layout */
+        .bottom-flourish {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--ink-black);
+            opacity: 0.8;
+        }
+
+        /* Footer Stamp */
+        footer {
+            margin-top: 30px;
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--ink-black);
+            font-weight: 600;
+            border-top: 1px solid rgba(15, 15, 15, 0.15);
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="apothecary-card">
+        <!-- Vintage Corner Accents -->
+        <div class="corner top-left">◆</div>
+        <div class="corner top-right">◆</div>
+        <div class="corner bottom-left">◆</div>
+        <div class="corner bottom-right">◆</div>
+        
+        <!-- Main Brand Arched Header -->
+        <div class="brand-arc-wrapper">
+            <div class="logo-main">Belladonna</div>
+            <span class="logo-sub">Botanicals</span>
+        </div>
+
+        <div class="center-crest"></div>
+
+        <!-- Automated Showcase for her Art Collections -->
+        <div class="showcase-container">
+            <!-- Slide 1: General Brand -->
+            <div class="slide active" data-color="#F6ECD5">
+                <div class="collection-title" style="color: var(--botanical-green)">Handcrafted</div>
+                <div class="bilingual-tag">All-Natural Skincare & Soaps</div>
+            </div>
+            <!-- Slide 2: Wildflower -->
+            <div class="slide" data-color="#F1EAF5">
+                <div class="collection-title" style="color: var(--color-wildflower)">Wildflower</div>
+                <div class="bilingual-tag">Perfume Oil &bull; Huile Parfumée</div>
+            </div>
+            <!-- Slide 3: Cherry Blossom -->
+            <div class="slide" data-color="#FAF1EF">
+                <div class="collection-title" style="color: var(--color-cherryblossom)">Cherry Blossom</div>
+                <div class="bilingual-tag">Perfume Oil &bull; Huile Parfumée</div>
+            </div>
+            <!-- Slide 4: Maraschino -->
+            <div class="slide" data-color="#F7ECEB">
+                <div class="collection-title" style="color: var(--color-maraschino)">Maraschino</div>
+                <div class="bilingual-tag">Perfume Oil &bull; Huile Parfumée</div>
+            </div>
+            <!-- Slide 5: Spellbound -->
+            <div class="slide" data-color="#ECE5ED">
+                <div class="collection-title" style="color: var(--color-spellbound)">Spellbound</div>
+                <div class="bilingual-tag">Perfume Oil &bull; Huile Parfumée</div>
+            </div>
+        </div>
+
+        <!-- Core Message Structure -->
+        <h1>Our digital boutique is blooming soon</h1>
+        <p>We are meticulously handcrafting all-natural, homemade skincare soaps, nourishing body lotions, and small-batch botanical perfumes. Our full website and inaugural apothecary collections are currently under cultivation.</p>
+
+        <!-- Elegant Center Divide Accent -->
+        <div class="bottom-flourish">🙛 ✦ 🙙</div>
+
+        <!-- Bottom Label Line -->
+        <footer>
+            10 mL &nbsp;&bull;&nbsp; Handcrafted in Canada
+        </footer>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+
+            // Subtly change card tint based on active scent label
+            const newBg = slides[currentSlide].getAttribute('data-color');
+            document.querySelector('.apothecary-card').style.backgroundColor = newBg;
+        }
+
+        setInterval(nextSlide, 4000); // Transitions seamlessly every 4 seconds
+    </script>
+</body>
+</html>
